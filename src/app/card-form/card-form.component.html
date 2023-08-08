@@ -1,0 +1,7 @@
+<form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+    <app-input label="Name" [control]="name"></app-input>
+    <app-input label="Card Number" [control]="cardNumber"></app-input>
+    <app-input label="Expiration" [control]="expiration"></app-input>
+    <app-input label="Security Code" [control]="securityCode"></app-input>
+    <button [ngClass]="[cardForm.invalid ? 'button is-danger' : 'button is-success']" [disabled]="cardForm.invalid" type="submit">Submit</button>
+</form>
