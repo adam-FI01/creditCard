@@ -9,10 +9,11 @@
                     Value you entered is {{ control.errors?.['minlength'].actualLength }}
                     characters long, but it must be at least {{ control.errors?.['minlength'].requiredLength }}
                     characters.
-                </p></div>
+                </p>
                 <div class="help is-danger"><p *ngIf="control.errors?.['email']"> Provide the Email NOW</p></div>
                 <div class="help is-danger"><p *ngIf="control.errors?.['maxlength']">Text should be {{control.errors?.['maxlength'].requiredLength}} characters or less.</p></div> 
                 <div class="help is-danger" *ngIf="control.errors?.['pattern']">Invalid Format</div>   
+            </div>
             </div>
             </ng-container>
     </div>

@@ -23,22 +23,28 @@ export class CardFormComponent implements OnInit {
         Validators.minLength(16),
         Validators.maxLength(16),
       ]),
+      securityCode2: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(4),
+        Validators.minLength(3)
+      ]),
       expiration: new DateFormControl('', [
         Validators.required,
-        Validators.pattern('^(0[1-9]|1[0-2])\\/\\d{2}$')
+        /* Validators.pattern('^(0[1-9]|1[0-2])\\/\\d{2}$') */
 
 
       ]),
-      securityCode: new FormControl('', [
-        Validators.required,
-        Validators.maxLength(3),
-        Validators.minLength(3)
-      ])
     });
   }
 
   onSubmit() {
   
+  }
+
+  onResetClick() {
+    console.log('Reset button clicked'); // Check if the method is being called
+    this.cardForm.reset();
+    console.log('Form reset:', this.cardForm.value); 
   }
  
   get name() {
@@ -48,12 +54,11 @@ export class CardFormComponent implements OnInit {
   get cardNumber() {
     return this.cardForm.get('cardNumber')!;
   }
+  get securityCode2() {
+    return this.cardForm.get('securityCode2')
+  }
 
   get expiration() {
     return this.cardForm.get('expiration')!;
-  }
-
-  get securityCode() {
-    return this.cardForm.get('securityCode')!;
   }
 }
